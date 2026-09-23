@@ -8,11 +8,11 @@ Helena Toompalu — OS: Windows
 Roll nädal 1: NotebookLM Seadistaja
 Jan Juhanson — OS: Windows
 Roll nädal 1: Team Charter Koostaja
-Ühised tööriistad
-Suhtluskanal: Google Workspace Chat https://chat.google.com/app/chat/AAQANoWkY28
-GitHub repo: https://github.com/kristinapiltjai/urbanstyle-Sales-Analytics
-Supabase: https://supabase.com/dashboard/project/rypejkvlbkjqayyjfzut
-NotebookLM: https://notebook.google.com/notebook/94cca1b6-f1a8-4443-a6ff-d43ad6ca7200?authuser=1
+Ühised tööriistad:
+- Suhtluskanal: Google Workspace Chat https://chat.google.com/app/chat/AAQANoWkY28
+- GitHub repo: https://github.com/kristinapiltjai/urbanstyle-Sales-Analytics
+- Supabase: https://supabase.com/dashboard/project/rypejkvlbkjqayyjfzut
+- NotebookLM: https://notebook.google.com/notebook/94cca1b6-f1a8-4443-a6ff-d43ad6ca7200?authuser=1
 Kokkulepped
 1. Kuidas me üksteist aitame, kui keegi jääb kinni?
 Google Chat

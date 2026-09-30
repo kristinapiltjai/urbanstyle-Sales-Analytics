@@ -6,8 +6,6 @@
    
    | Helena Toompalu | B: NotebookLM Seadistaja | Win |
    
-   | Jan Juhanson | A: Team Charter Koostaja | Win |
-   
    | Oliver Dalberg | B: Supabase Seadistaja | Mac |
    
    ## Meie eesmärk

@@ -1,6 +1,6 @@
 # Sales Analytics -- UrbanStyle.ltd Andmemeeskond
    ## Meeskonnaliikmed
-   | Nimi | Roll (Nädal 1) | OS |
+   | Nimi | Roll (Nädal 1) |
    
    | Helena Toompalu | A: Müügiandmed |
    

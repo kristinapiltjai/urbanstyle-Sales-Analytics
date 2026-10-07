@@ -17,10 +17,10 @@
 3. Kuidas me jagame faile? Google Drive: https://drive.google.com/drive/folders/1e1Pz989oGNszt4UtUTwoDiQ_du8t9Idz
 
 **Rollide rotatsioon:**
-- Nädal 1: A=Kristina B=Oliver C=Helena
-- Nädal 2: A=Helena B=Kristina C=Oliver
-- Nädal 3: A=Oliver B=Helena C=Kristina
-- Nädal 4: A=Kristina B=Oliver C=Helena
+- Nädal 0: A=Kristina B=Oliver C=Helena
+- Nädal 1: A=Helena B=Kristina C=Oliver
+- Nädal 2: A=Oliver B=Helena C=Kristina
+- Nädal 3: A=Kristina B=Oliver C=Helena
 
 **ALLKIRJAD:**
 1. Allkirjastatud 2. Allkirjastatud 3. Allkirjastatud

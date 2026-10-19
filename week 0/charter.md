@@ -21,6 +21,9 @@
 - Nädal 1: A=Helena B=Kristina C=Oliver
 - Nädal 2: A=Oliver B=Helena C=Kristina
 - Nädal 3: A=Kristina B=Oliver C=Helena
+- Nädal 4: A=Helena B=Kristina C=Oliver
+- Nädal 5: A=Oliver B=Helena C=Kristina
+- Nädal 6: A=Kristina B=Oliver C=Helena
 
 **ALLKIRJAD:**
 1. Allkirjastatud 2. Allkirjastatud 3. Allkirjastatud

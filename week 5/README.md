@@ -17,3 +17,4 @@ Kristina - mina uurisin inventuuri ehk siis müüki kaupluste lõikes ja laoseis
 
 Helena - Lõin PowerBIs dashboardi CEO-vaate jaoks, mis hõlmab ettevõtte kasvu- ja müügiandmeid perioodil 2023-2024. Graafikuist nähtus, et  ettevõte põhinäitajad kasvasid: 2024. aastal kasvas müügikäive 19% ning klientide ja tellimuste arv ligikaudu 20%. Trendide graafiku põhjal joonistub selgelt välja hooajaline trend: enim müüdi tooteid suvel ja jõuluperioodil.
 
+Oliver - Uurisin turunduskampaaniaid ning nende mõju müügile. Tehnologia: Andmebaasis ei ole head seost müügi ja kampaaniate vahel. Kuna kampaaniad toimuvad kogu aeg on raske eristada kampaania ning tavalisi müüke. Soovitus: Müük tabelis viide kampaaniale. Äri: Üldine kampaania töötab paremini kui ühe toote oma ja üle mitme kanali tehtavate kampaaniate suurendamisel on samuti positiivne mõju.

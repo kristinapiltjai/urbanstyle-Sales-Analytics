@@ -6,7 +6,7 @@
    
    | Helena Toompalu | B: Tartu |
 
-   | Oliver Dalberg | C: Tartu |
+   | Oliver Dalberg | C: Pärnu |
 
 
 ## Tiimi esitlus

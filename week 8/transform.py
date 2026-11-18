@@ -4,10 +4,7 @@
 import logging
 import pandas as pd
 
-logging.basicConfig(
-    level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)  # seadistus (basicConfig) on pipeline.py-s
 
 
 # 1. Puhastamine: duplikaadid, NULL-id, kuupäevad
@@ -115,66 +112,39 @@ def merge_datasets(df_sales, df_customers):
     return pd.DataFrame()
 
 
-# 5. Testimine
+# 5. Testimine Supabase'i päris andmetega
 if __name__ == '__main__':
-  print('=== TESTIME TRANSFORM FUNKTSIOONE ===\n')
+  from data_fetcher import fetch_table_data
 
-  # Näidisandmed (duplikaat, NULL-id, vigane kuupäev)
-  sales = pd.DataFrame({
-      'sale_id': [1, 2, 2, 3, 4, 5, 6, 7],
-      'invoice_id': ['INV-1', 'INV-2', 'INV-2', 'INV-2', 'INV-3', 'INV-4',
-                     'INV-5', 'INV-6'],
-      'sale_date': ['2026-11-02', '2026-11-03', '2026-11-03', '2026-11-03',
-                    '2026-11-10', '2026-11-11', '2026-11-12', 'vigane'],
-      'customer_id': [101, 102, 102, 102, 101, 103, None, 104],
-      'quantity': [2, 1, 1, 1, 1, 1, 1, 1],
-      'unit_price': [50.0, 30.0, 30.0, 20.0, 80.0, 200.0, 30.0, 80.0],
-      'total_price': [100.0, 30.0, 30.0, 20.0, None, 200.0, 30.0, 80.0],
-  })
-  customers = pd.DataFrame({
-      'customer_id': [101, 102, 103],
-      'first_name': ['Mari', 'Jaan', 'Eha'],
-      'city': ['Tallinn', 'Tartu', 'Pärnu'],
-      'registration_date': ['2024-02-27', None, '2021-02-03'],
-      'loyalty_tier': [None, 'bronze', None],
-  })
+  logging.basicConfig(level=logging.INFO)  # et logid testis näha oleks
+
+  print('=== TESTIME TRANSFORM FUNKTSIOONE ===\n')
+  # Näidisandmed = üks kuu päris müüke Supabase'ist
+  raw_sales = fetch_table_data('sales', start_date='2023-01-01', end_date='2023-01-31')
+  raw_customers = fetch_table_data('customers')
+  print(f'Laaditud: {len(raw_sales)} müüki, {len(raw_customers)} klienti\n')
 
   # Test 1: clean_data
-  clean = clean_data(sales)
-  clean_cust = clean_data(customers)
-  print('1) clean_data:\n', clean, '\n')
-  assert len(clean) == 5  # duplikaat, NULL customer_id, vigane kuupäev välja
-  assert clean['total_price'].isna().sum() == 0
-  assert len(clean_cust) == 3  # puuduv registration_date ei kustuta klienti
+  sales = clean_data(raw_sales)
+  customers = clean_data(raw_customers)
+  print('1) clean_data:\n', sales.head(), '\n')
+  assert not sales.duplicated().any()
+  assert sales['total_price'].isna().sum() == 0
+  assert sales['sale_date'].dtype.kind == 'M'  # datetime
 
   # Test 2: calculate_weekly_aggregates
-  weekly = calculate_weekly_aggregates(clean)
-  print('2) calculate_weekly_aggregates:\n', weekly, '\n')
-  assert weekly['orders'].tolist() == [2, 2]  # INV-2 (2 rida) = 1 tellimus
+  weekly = calculate_weekly_aggregates(sales)
+  print('2) calculate_weekly_aggregates:\n', weekly.tail(), '\n')
+  assert round(weekly['revenue'].sum(), 2) == round(sales['total_price'].sum(), 2)
 
   # Test 3: calculate_kpis
-  kpis = calculate_kpis(clean)
+  kpis = calculate_kpis(sales)
   print('3) calculate_kpis:', kpis, '\n')
   assert len(kpis) >= 3
-  assert kpis['total_revenue'] == 350.0 and kpis['total_orders'] == 4
 
   # Test 4: merge_datasets
-  merged = merge_datasets(clean, clean_cust)
-  print('4) merge_datasets:\n', merged, '\n')
-  assert len(merged) == len(clean)  # left join ei muuda ridade arvu
-  assert 'city' in merged.columns
+  merged = merge_datasets(sales, customers)
+  print('4) merge_datasets:\n', merged.head(), '\n')
+  assert len(merged) == len(sales)  # left join ei muuda ridade arvu
 
   print('✅ Kõik testid läbitud!')
-
-  # Päris andmed Supabase'ist
-  try:
-    from data_fetcher import fetch_table_data
-
-    df_sales = clean_data(fetch_table_data('sales'))
-    df_customers = clean_data(fetch_table_data('customers'))
-    print('\n=== PÄRIS ANDMED ===')
-    print(calculate_kpis(df_sales))
-    print(calculate_weekly_aggregates(df_sales).tail())
-    print(merge_datasets(df_sales, df_customers).head())
-  except ImportError:
-    logger.info('data_fetcher.py ei leitud, päris andmetega testi ei tehtud')

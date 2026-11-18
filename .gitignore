@@ -1,2 +1,6 @@
 .vscode/settings.json
 .env
+__pycache__/
+*.pyc
+output/csv/
+*.csv

@@ -52,7 +52,7 @@ def calculate_weekly_aggregates(df):
         .rename(columns={'sale_date': 'week'})
     )
     weekly['avg_order_value'] = (weekly['revenue'] / weekly['orders']).fillna(0)
-    weekly = weekly.round(2)
+    weekly[['revenue', 'avg_order_value']] = weekly[['revenue', 'avg_order_value']].round(2)
 
     logger.info(f'[TRANSFORM] calculate_weekly_aggregates: {len(weekly)} nädalat')
     return weekly

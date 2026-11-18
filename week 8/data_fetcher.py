@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-from pathlib import Path
 from supabase import create_client
 
 # 1. Leiame .env faili otse käesoleva skripti (data_fetcher.py) kaustast

@@ -1,8 +1,5 @@
-# transform.py — ETL Transform samm
-# Sisend: data_fetcher.py DataFrame'id (sales, customers)
-
-import logging
 import pandas as pd
+import logging
 
 logger = logging.getLogger(__name__)  # seadistus (basicConfig) on pipeline.py-s
 
